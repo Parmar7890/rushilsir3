@@ -82,36 +82,28 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="dist/js/pages/dashboard.js"></script>
 
-<script>
-     
-    $(document).ready(function(){
-      var regex = /^[0-9]+$/;
-       $("#otp_form").submit(function(e){
-         
-           var isValid = true;
-       
-        var otp = $("#otp").val();
-       // alert(email);
-       
-          
-            $("#otpErr").text("");
-          
-          
-           
-            if(otp == ""){
-                $("#otpErr").text("otp is required");
-                isValid = false;
-            }
-            else if(! regex.test(otp)){
-              $("#otpErr").text("text is not allowed");
-              isValid = false;
-            }
-           
-           
-            return isValid;
 
-        })
+<script>
+   $(document).ready(function(){
+var otpCheck =  /^[0-9]+$/;
+
+     $("#otp_form").submit(function(e){
+      var isValid = true;
+     
+      var otp = $("#otp").val();
+     $("#otpErr").text("");
+
+     if(otp == ""){
+      $("#otpErr").text("otp is reuired!");
+      isValid = false;
+     }   else if (!otpCheck.test(otp)) {
+      $("#otpErr").text("invaild otp!!");
+      isValid = false;
+     }
+    
+     return isValid;
     })
+   })
   </script>
 </body>
 </html>

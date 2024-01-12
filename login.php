@@ -209,7 +209,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
    
 }
-// ?>
+ ?>
 // $filecheck = basename($_FILES['imagefile']['name']);
 // $ext = strtolower(substr($filecheck, strrpos($filecheck, '.') + 1));
 

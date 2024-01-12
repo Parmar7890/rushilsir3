@@ -262,16 +262,7 @@ class items{
        
 
         $photo = implode(',', $fileNames);
-    
-        echo  $targetFile = basename($photo,$_FILES['file']['name']);
-        die;
-         $ext = strtolower(substr($targetFile, strrpos($targetFile, '.') + 1));
-         
-         if (!(($ext == "jpg" || $ext == "gif" || $ext == "png") && ($_FILES["imagefile"]["type"] == "image/jpeg" || $_FILES["imagefile"]["type"] == "image/gif" || $_FILES["imagefile"]["type"] == "image/png") && 
-             ($_FILES["imagefile"]["size"] < 2120000))){
-             echo "F2";
-             die();
-         }
+
 
         $insertItem = $this->pdo->prepare("INSERT INTO items (item_name, status, photo) VALUES (:item_name, :status, :photo)");
     
@@ -315,6 +306,9 @@ class items{
        $fileNames = [];
 
        foreach($_FILES["file"]["name"] as $key=>$val) {
+        //  echo "<pre>";
+        // print_r($postData);
+        // die;
         $targetFile = $path . basename($val);
     //    echo $targetFile = basename($path,"jpg");
     //    die;
@@ -335,21 +329,7 @@ class items{
        $edit_item->bindParam(':item_name', $postData["item_name"]);
        $edit_item->bindParam(':image', $image);
 
-    //    if ($edit_item->execute()) {
-    //     $response["status"] = "200";
-    //     $response["message"] = "data successfully updated";
-    // } else {
-    //     $response["status"] = "404";
-    //     $response["message"] = "data not updated";
-    // }      
-
-        // if ($edit_item->rowCount() > 0) {
-       
-        //     header("Location: itemData.php");
-        //     exit; 
-        // } else {
-        //     echo "Error df";
-        // }
+  
     }
 
     public function deleteItem($userid){

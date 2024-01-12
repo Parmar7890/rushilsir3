@@ -105,8 +105,6 @@
        
           
             $("#emailErr").text("");
-          
-          
            
             if(email == ""){
                 $("emailErr").text("email name is required");
@@ -162,7 +160,7 @@ $response = [];
        echo " <script type='text/javascript'>
        // Display a success toast
        Toastify({
-         text: 'invaid email!',
+         text: 'otp sent successfully!',
          backgroundColor: 'green',
        }).showToast();
        setTimeout(function() {

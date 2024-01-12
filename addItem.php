@@ -18,59 +18,56 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 
-<body class="hold-transition login-page">
+<body>
 <form action="" method="post" id="loginForm" enctype="multipart/form-data">
-  <div class="login-box">
-    <div class="login-logo">
-      <a href="./index2.html"><b>Admin</b>LTE</a>
-    </div>
-    <!-- /.login-logo -->
-    <div class="card">
-      <div class="card-body login-card-body">
-        <p class="login-box-msg">Sign in to start your session</p>
+    <div class="container-fluid">
+        <!-- SELECT2 EXAMPLE -->
+        <div class="card card-default">
+            <div class="card-header">
+                <h3 class="card-title">ADD ITEMS</h3>
 
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Item Name" name="itemName" id="itemName">
-          <div class="input-group-append">
-            <div class="input-group-text"></div>
-          </div>
-        </div>
+                <div class="card-tools">
+                        <a href="itemData.php"><i class="fas fa-times"></i></a>
 
-        <div class="input-group mb-3">
-        <select type="text" class="form-control" placeholder="status" name="status" id="status">
-          <option value="1">in stock</option>
-          <option value="0">empty</option>
-        </select>
-        </div>
-
-        <div class="form-group">
-          <label for="exampleInputFile">File input</label>
-          <div class="input-group">
-            <div class="custom-file">
-              <input type="file" name="file[]" class="custom-file-input" id="exampleInputFile" multiple>
-              <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                </div>
             </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-8">
-            <div class="icheck-primary">
-              <input type="checkbox" id="remember">
-              <label for="remember">Remember Me</label>
+            <div class="card-body">
+                <div class="row justify-content-center"> <!-- Center the content -->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Add Item</label>
+                            <input type="text" class="form-control" id="itemName" name="itemName" placeholder="Enter item name">
+                        </div>
+                        <label for="exampleInputFile">File input</label>
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" name="file[]" id="exampleInputFile">
+                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                            </div>
+                        </div>
+                        <div class="form-group mt-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="status" value="1">
+                                <label class="form-check-label">In Stock</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" name="status" value="0" type="radio" checked>
+                                <label class="form-check-label">Empty</label>
+                            </div>
+                        </div>
+                        <div class="card-header d-flex justify-content-end">
+                
+              <button type="submit" name="submit" class="btn btn-primary">
+                 Add item
+                </button>
+              </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" name="submit" class="btn btn-primary btn-block" name="login">Sign In</button>
-          </div>
-          <!-- /.col -->
         </div>
-      </div>
-      <!-- /.login-card-body -->
     </div>
-  </div>
 </form>
+
 
   <!-- /.login-box -->
 
@@ -133,8 +130,9 @@ $postData = array(
   'status' => $status,
   'multiple_file' => $_FILES
 );
-
- $obj->addItem($postData);
+// echo "<pre>";
+// print_r($postData);
+$obj->addItem($postData);
 
 
  }

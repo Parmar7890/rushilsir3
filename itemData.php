@@ -100,7 +100,7 @@ if($row["status"] == 1){
 }
 
 ?>
-                    <td><?php echo $row["photo"]; ?></td>
+                    <td>uploads/<?php echo $row["photo"]; ?></td>
                     <td><a href="editItem.php?id=<?php echo $row["id"]; ?>">edit<a></td>
                     <td><a href="deleteItem.php?id=<?php echo $row["id"]; ?>">delete<a></td>
                   </tr>

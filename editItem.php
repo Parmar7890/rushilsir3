@@ -29,8 +29,6 @@ header("location:itemData.php");
     }else{
         $user = new items($pdo);
         $user->sendid($postData);
-        // echo "<pre>";
-        // print_r($postData);
     }
 }
 
